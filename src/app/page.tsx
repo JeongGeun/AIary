@@ -1,6 +1,11 @@
+import { InstallPrompt } from './_component/WebPush/InstallPrompt';
+import { PushNotificationManager } from './_component/WebPush/PushNotificationManager';
 
-export default function Home() {
+export default function Page() {
   return (
-    <>Hello World</>
+    <div>
+      <PushNotificationManager />
+      <InstallPrompt />
+    </div>
   );
 }
