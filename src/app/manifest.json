@@ -1,6 +1,14 @@
 {
   "name": "AIary",
-  "short_name": "Smart diary app with AI",
+  "short_name": "AIary",
+  "description": "Smart diary app with AI",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "lang": "en",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +23,19 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
-  "display": "standalone"
+  "categories": ["productivity", "lifestyle", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Write New Entry",
+      "short_name": "New Entry",
+      "description": "Write a new diary entry with AI",
+      "url": "/write",
+      "icons": [
+        {
+          "src": "/web-app-manifest-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
 }

@@ -3,7 +3,7 @@
 import webpush from 'web-push';
 
 webpush.setVapidDetails(
-  'geun5310@naver.com',
+  'https://ai-ary.vercel.app',
   process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
   process.env.VAPID_PRIVATE_KEY!
 );
@@ -35,7 +35,7 @@ export async function sendNotification(message: string) {
       JSON.stringify({
         title: 'Test Notification',
         body: message,
-        icon: '/icon.png',
+        icon: '/web-app-manifest-192x192.png',
       })
     );
     return { success: true };

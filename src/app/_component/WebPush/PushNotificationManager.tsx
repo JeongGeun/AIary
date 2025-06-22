@@ -4,7 +4,7 @@ import {
   sendNotification,
   subscribeUser,
   unsubscribeUser,
-} from '@/app/actions';
+} from '@/app/_util/actions';
 import { useState, useEffect } from 'react';
 
 export function PushNotificationManager() {
