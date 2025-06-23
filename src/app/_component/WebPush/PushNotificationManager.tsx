@@ -1,10 +1,5 @@
 'use client';
 import { urlBase64ToUint8Array } from '@/app/_util/urlBase64ToUint8Array';
-import {
-  sendNotification,
-  subscribeUser,
-  unsubscribeUser,
-} from '@/app/_util/actions';
 import { useState, useEffect } from 'react';
 
 export function PushNotificationManager() {
@@ -40,19 +35,30 @@ export function PushNotificationManager() {
     });
     setSubscription(sub);
     const serializedSub = JSON.parse(JSON.stringify(sub));
-    await subscribeUser(serializedSub);
+    // await subscribeUser(serializedSub);
+
+    fetch('/api/subscribe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(serializedSub),
+    });
   }
 
   async function unsubscribeFromPush() {
     await subscription?.unsubscribe();
     setSubscription(null);
-    await unsubscribeUser();
+    //await unsubscribeUser();
   }
 
   async function sendTestNotification() {
     if (subscription) {
-      await sendNotification(message);
+      // await sendNotification(message);
       setMessage('');
+      fetch('/api/notification', {
+        method: 'POST',
+      });
     }
   }
 
