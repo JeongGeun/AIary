@@ -17,6 +17,7 @@ export function PushNotificationManager() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     window.addEventListener('beforeinstallprompt', (e: any) => {
       // 기본 동작 방지하고 즉시 실행
+      console.log('beforeinstallprompt 이벤트 발생!', e);
       e.preventDefault();
       e.prompt(); // 바로 프롬프트 띄우기
     });
