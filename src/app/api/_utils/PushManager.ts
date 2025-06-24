@@ -24,6 +24,27 @@ export class SimplePushManager {
     }
   }
 
+  static async removeSubscription(subscriptionData: webpush.PushSubscription) {
+    try {
+      const key = `push:${Buffer.from(subscriptionData.endpoint).toString(
+        'base64'
+      )}`;
+
+      const result = await redis.del(key);
+
+      if (result === 1) {
+        console.log('구독 삭제 성공:', key);
+        return { success: true, deleted: true };
+      } else {
+        console.log('삭제할 구독을 찾을 수 없음:', key);
+        return { success: true, deleted: false };
+      }
+    } catch (error) {
+      console.error('구독 삭제 실패:', error);
+      throw error;
+    }
+  }
+
   // 간단한 전체 구독 조회
   static async getAllSubscriptions() {
     try {
