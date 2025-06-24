@@ -1,5 +1,6 @@
 'use client';
 import { urlBase64ToUint8Array } from '@/app/_util/urlBase64ToUint8Array';
+import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
 
 export function PushNotificationManager() {
@@ -77,13 +78,13 @@ export function PushNotificationManager() {
       {subscription ? (
         <>
           <p>You are subscribed to push notifications.</p>
-          <button onClick={unsubscribeFromPush}>Unsubscribe</button>
-          <button onClick={sendTestNotification}>Send Test</button>
+          <Button onClick={unsubscribeFromPush}>Unsubscribe</Button>
+          <Button onClick={sendTestNotification}>Send Test</Button>
         </>
       ) : (
         <>
           <p>You are not subscribed to push notifications.</p>
-          <button onClick={subscribeToPush}>Subscribe</button>
+          <Button onClick={subscribeToPush}>Subscribe</Button>
         </>
       )}
     </div>
