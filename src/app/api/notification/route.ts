@@ -58,6 +58,9 @@ export async function POST() {
     return NextResponse.json({
       success: true,
       message: '알림 전송이 완료되었습니다.',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
     });
   } catch (error) {
     console.error('알림 전송 실패:', error);

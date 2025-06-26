@@ -8,5 +8,10 @@ export const POST = async (request: Request) => {
   console.log('Received body:', subscriptionData);
 
   // Return the result in the response
-  return new NextResponse(JSON.stringify({ result }), { status: 200 });
+  return new NextResponse(JSON.stringify({ result }), {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+  });
 };
