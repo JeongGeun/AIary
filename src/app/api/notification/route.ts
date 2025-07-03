@@ -32,8 +32,8 @@ export async function POST() {
         };
 
         const payload = JSON.stringify({
-          title: `AIary reminds you it's time to journal`,
-          body: 'How was your day?',
+          title: 'How was your day?',
+          body: `AIary reminds you it's time to journal`,
           icon: '/web-app-manifest-192x192.png',
           badge: '/web-app-manifest-192x192.png',
         });
