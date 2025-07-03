@@ -14,9 +14,7 @@ export class SimplePushManager {
         lastUsed: Date.now(),
       };
 
-      await redis.set(key, JSON.stringify(dataToStore), {
-        EX: -1,
-      });
+      await redis.set(key, JSON.stringify(dataToStore));
       return { success: true };
     } catch (error) {
       console.error('구독 저장 실패:', error);
