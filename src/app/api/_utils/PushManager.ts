@@ -15,7 +15,7 @@ export class SimplePushManager {
       };
 
       await redis.set(key, JSON.stringify(dataToStore), {
-        EX: 3600,
+        EX: -1,
       });
       return { success: true };
     } catch (error) {
