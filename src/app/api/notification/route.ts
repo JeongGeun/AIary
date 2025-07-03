@@ -32,8 +32,8 @@ export async function POST() {
         };
 
         const payload = JSON.stringify({
-          title: 'AI Ary가 알려드려요',
-          body: '오늘 하루는 어땠나요?',
+          title: `AIary reminds you it's time to journal`,
+          body: 'How was your day?',
           icon: '/web-app-manifest-192x192.png',
           badge: '/web-app-manifest-192x192.png',
         });
