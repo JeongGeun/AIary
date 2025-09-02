@@ -1,0 +1,32 @@
+name: Claude Code Bot
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+  
+permissions:
+  # needed to read pull request information (title, body, branches, etc.)
+  pull-requests: read
+  # needed to respond to comments
+  issues: write
+  # needed to read/write code, create pull requests, and push code
+  contents: write
+
+jobs:
+  claude-code:
+    runs-on: ubuntu-latest
+    if: contains(github.event.comment.body, '@claude')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Claude Code Bot
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Optional: anthropic-api-url: ${{ secrets.ANTHROPIC_API_URL }}
+          # Optional: model: claude-3-opus-20240229
