@@ -8,11 +8,12 @@ on:
 
 permissions:
   # needed to read pull request information (title, body, branches, etc.)
-  pull-requests: read
+  pull-requests: write
   # needed to respond to comments
   issues: write
   # needed to read/write code, create pull requests, and push code
   contents: write
+  id-token: write
 
 jobs:
   claude-code:
